@@ -1,0 +1,9 @@
+# Lint, Format
+lint:
+	go fmt ./...
+	goimports -w ./
+	go vet ./...
+
+# Test
+test:
+	go test -v -race ./...
