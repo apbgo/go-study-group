@@ -19,3 +19,4 @@ sandbox/
 .DS_STORE
 .tmp/
 .secret/
+.vscode
