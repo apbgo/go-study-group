@@ -18,9 +18,8 @@ type Number struct {
 	index int
 }
 
-// 構造体Numberを3つの要素数なら成るスライスにして返却
-// 条件1: 3つの要素の中身は[{1} {2} {3}]とすること
-// 条件2: append関数を使用すること
+// 構造体Numberを3つの要素数から成るスライスにして返却
+// 3つの要素の中身は[{1} {2} {3}]とし、append関数を使用すること
 func Numbers() []Number {
 	// TODO Q2
 
@@ -35,9 +34,28 @@ func CalcMap(m map[string]int) int {
 	return 0
 }
 
+type Model struct {
+	Value int
+}
+
+// 与えられたスライスのModel全てのValueに5を足す破壊的な関数を作成
+func Add(models []Model) {
+	// TODO  Q4
+
+}
+
+// 引数のスライスには重複な値が格納されているのでユニークな値のスライスに加工して返却
+// 順序はスライスに格納されている順番のまま返却すること
+// ex) 引数:[]slice{21,21,4,5} 戻り値:[]int{21,4,5}
+func Unique(slice []int) []int {
+	// TODO Q5
+
+	return nil
+}
+
 // 連続するフィボナッチ数(0, 1, 1, 2, 3, 5, ...)を返す関数(クロージャ)を返却
 func Fibonacci() func() int {
-	// TODO Q4
+	// TODO Q6 オプション
 
 	return nil
 }

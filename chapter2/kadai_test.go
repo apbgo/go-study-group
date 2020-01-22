@@ -70,6 +70,34 @@ func TestCalcMap(t *testing.T) {
 	})
 }
 
+func TestAdd(t *testing.T) {
+	var models = []Model{
+		{Value: 1},
+		{Value: 5},
+		{Value: 11},
+	}
+
+	t.Run("Add", func(t *testing.T) {
+		Add(models)
+
+		assert.Equal(t, []Model{
+			{Value: 6},
+			{Value: 10},
+			{Value: 16},
+		}, models)
+	})
+}
+
+func TestUnique(t *testing.T) {
+	t.Run("Unique", func(t *testing.T) {
+		u1 := Unique([]int{11, 11, 11, 2, 2})
+		assert.Equal(t, []int{11, 2}, u1)
+
+		u2 := Unique([]int{1, 3, 3, 3, 3, 3})
+		assert.Equal(t, []int{1, 3}, u2)
+	})
+}
+
 func TestFibonacci(t *testing.T) {
 	expected := []int{0, 1, 1, 2, 3, 5, 8, 13, 21, 34}
 
