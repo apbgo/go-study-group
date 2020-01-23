@@ -5,6 +5,7 @@ import (
 	"errors"
 	"os"
 	"strconv"
+	"strings"
 
 	"github.com/apbgo/go-study-group/chapter1/lib"
 )
@@ -30,9 +31,8 @@ func CalcAns(op string, x, y int) (int, error) {
 func StringEncodeAns(str string) string {
 	if len(str) <= 5 {
 		return lib.ToCamel(str)
-	} else {
-		return lib.ToSnake(str)
 	}
+	return lib.ToSnake(str)
 }
 
 // Sqrt 数値xが与えられたときにz²が最もxに近い数値zを返却
@@ -58,16 +58,22 @@ func SqrtAns2(x float64) float64 {
 // 期待する戻り値の例：x=5のとき "1\n12\n123\n1234\n12345"
 // （x<=0の時は"error"を返却）
 func PyramidAns(x int) string {
-	var str string
+	// 素直にStringを連結してもOK（速度は遅い）
+	// var str string
+	var sb strings.Builder
+
 	for i := 0; i < x; i++ {
 		if i != 0 {
-			str += "\n"
+			sb.WriteString("\n")
+			// str += "\n"
 		}
 		for j := 0; j < i+1; j++ {
-			str += strconv.Itoa(j + 1)
+			sb.WriteString(strconv.Itoa(j + 1))
+			// str += strconv.Itoa(j + 1)
 		}
 	}
-	return str
+	return sb.String()
+	//return str
 }
 
 // StringSum x,yをintにキャストし合計値を返却 (正常終了時、errorはnilでよい)
