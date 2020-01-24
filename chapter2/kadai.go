@@ -28,6 +28,7 @@ func Numbers() []Number {
 
 // 引数mをforで回し、「値」部分だけの和を返却
 // キーに「yon」が含まれる場合は、キー「yon」に関連する値は除外すること
+// キー「yon」に関しては完全一致すること
 func CalcMap(m map[string]int) int {
 	// TODO Q3
 
