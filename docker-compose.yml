@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  apbgo_mysql:
+    container_name: apbgo_mysql
+    image: mysql:5.7
+    command: >
+      mysqld
+      --character_set_server=utf8mb4
+      --collation_server=utf8mb4_unicode_ci
+      --max_allowed_packet=16MB
+      --transaction_isolation=READ-COMMITTED
+      --binlog_format=ROW
+      --innodb_autoinc_lock_mode=2
+      --max-connections=10000
+    ports:
+      - 5446:3306
+    environment:
+      - MYSQL_DATABASE=default
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - TZ=UTC
+    volumes:
+      - apbgo:/var/lib/mysql
+
+volumes:
+  apbgo:
