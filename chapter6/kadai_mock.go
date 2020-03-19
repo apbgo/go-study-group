@@ -7,8 +7,9 @@ package chapter6
 import (
 	context "context"
 	sql "database/sql"
-	gomock "github.com/golang/mock/gomock"
 	reflect "reflect"
+
+	gomock "github.com/golang/mock/gomock"
 )
 
 // MockIFUserItemService is a mock of IFUserItemService interface
