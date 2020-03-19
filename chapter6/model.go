@@ -13,18 +13,19 @@ type IUser struct {
 	LatestVersion     int64          `xorm:"'latest_version'"`
 	CreatedAt         time.Time      `xorm:"'created_at' created"`
 	UpdatedAt         time.Time      `xorm:"'updated_at' updated"`
+	DeletedAt         sql.NullTime   `xorm:"'deleted_at' deleted"`
 }
 
-type IUserStatus struct {
-	UserID    int64     `xorm:"'user_id' pk"`
-	Level     int64     `xorm:"'level'"`
-	Stumina   int64     `xorm:"'stumina'"`
-	EXP       int64     `xorm:"'exp'"`
-	CreatedAt time.Time `xorm:"'created_at' created"`
-	UpdatedAt time.Time `xorm:"'updated_at' updated"`
+type IUserItem struct {
+	UserID    int64        `xorm:"'user_id' pk"`
+	ItemID    int64        `xorm:"'item_id'"`
+	Count     int64        `xorm:"'count'"`
+	CreatedAt time.Time    `xorm:"'created_at' created"`
+	UpdatedAt time.Time    `xorm:"'updated_at' updated"`
+	DeletedAt sql.NullTime `xorm:"'deleted_at' deleted"`
 }
 
 type JoinedUser struct {
-	IUser       `xorm:"extends"`
-	IUserStatus `xorm:"extends"`
+	IUser     `xorm:"extends"`
+	IUserItem `xorm:"extends"`
 }

@@ -45,6 +45,7 @@ func Sample1() error {
 			&record.LatestVersion,
 			&record.CreatedAt,
 			&record.UpdatedAt,
+			&record.DeletedAt,
 		); err != nil {
 			return err
 		}
@@ -56,6 +57,6 @@ func Sample1() error {
 		return err
 	}
 
-	log.Println(records)
+	log.Printf("%+v", records)
 	return nil
 }

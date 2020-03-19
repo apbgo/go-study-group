@@ -56,14 +56,14 @@ func Sample7() error {
 
 	var joinedUsers []chapter6.JoinedUser
 	err = sess.Table("i_user").
-		Select("i_user.*, i_user_status.*").
-		Join("INNER", "i_user_status", "i_user.user_id = i_user_status.user_id").
+		Select("i_user.*, i_user_item.*").
+		Join("INNER", "i_user_item", "i_user.user_id = i_user_item.user_id").
 		Where("i_user.user_id = ?", 1).
 		Find(&joinedUsers)
 	if err != nil {
 		return err
 	}
-	log.Println(joinedUsers)
+	log.Printf("%+v", joinedUsers)
 
 	return nil
 }

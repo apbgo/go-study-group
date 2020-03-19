@@ -1,0 +1,31 @@
+@startuml
+
+!include er_diagram_skin.h
+ER_COMMENT(勉強会, サンプル)
+
+INFORMATION_ENTITY(i_user, ユーザー, default) {
+    + bigint user_id : SK SO -- ユーザーID
+    --
+    int os_type : -- OSタイプ
+    varchar(16) name : -- 名前
+	datetime gamestart_datetime : -- ゲーム開始日時
+	bigint latest_version : -- 最終バージョン
+	datetime created_at : SO -- 作成日時
+	datetime updated_at : SO -- 更新日時
+	datetime deleted_at : OP SO -- 削除日時
+}
+
+INFORMATION_ENTITY(i_user_item, ユーザーアイテム, default) {
+    + bigint user_id : SK SO -- ユーザーID
+    + bigint item_id : -- アイテムID
+    --
+    bigint count : -- 所持数
+	datetime created_at : SO -- 作成日時
+	datetime updated_at : SO -- 更新日時
+	datetime deleted_at : OP SO -- 削除日時
+}
+
+
+RELATION(i_user_item, }|--o|, i_user_item, user_id)
+
+@enduml
