@@ -26,7 +26,7 @@ type Reward struct {
 // IFUserItemService 報酬の付与の機能を表すインターフェイス
 type IFUserItemService interface {
 	// 対象のUserIDに引数で渡された報酬を付与します.
-	Provide(ctx context.Context, userID int64, rewards ...Reward)
+	Provide(ctx context.Context, userID int64, rewards ...Reward) error
 }
 
 // IFUserItemRepository i_user_itemテーブルへの操作を行うインターフェイス
