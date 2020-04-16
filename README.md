@@ -13,3 +13,5 @@
 - chapter3 : 2020/02/6
 - chapter4 : 2020/02/20 (3/5 answer追加済)
 - chapter5 : 2020/03/05 （3/19 answer追加済）
+- chapter6 : 2020/03/19
+- chapter7 : 2020/04/16
